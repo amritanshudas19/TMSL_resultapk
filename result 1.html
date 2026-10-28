@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techno Main Salt Lake (TMSL) | Official Campus Portal</title>
+    <style>
+        :root {
+            --primary-blue: #0b3c5d;
+            --secondary-blue: #1d2731;
+            --accent-gold: #f39c12;
+            --light-bg: #f4f7f6;
+            --border-color: #dcdcdc;
+            --text-dark: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Top Header Info Bar */
+        .top-bar {
+            background-color: var(--secondary-blue);
+            color: #ffffff;
+            padding: 6px 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        /* Main Navigation Header */
+        header {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 15px 5%;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-placeholder {
+            width: 55px;
+            height: 55px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+        }
+
+        .brand-text h1 {
+            font-size: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-text p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation Menu */
+        nav {
+            background-color: #082a42;
+            padding: 0 5%;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 12px 18px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        /* Announcement Ticker */
+        .ticker-wrap {
+            background: #e9ecef;
+            border-bottom: 2px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            font-size: 0.9rem;
+        }
+
+        .ticker-title {
+            background: var(--accent-gold);
+            color: var(--primary-blue);
+            padding: 8px 15px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .ticker-text {
+            padding: 8px 15px;
+            white-space: nowrap;
+            animation: ticker 25s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translate3d(100%, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        /* Main Layout Grid */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--primary-blue);
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--light-bg);
+            padding-bottom: 8px;
+        }
+
+        .quick-links ul {
+            list-style: none;
+        }
+
+        .quick-links ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .quick-links ul li a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        .quick-links ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Result Section Styles */
+        .result-box {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 400px;
+            margin-top: 10px;
+        }
+
+        .result-box label {
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .result-box input[type="text"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .result-box input[type="text"]:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .result-box button {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .result-box button:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .result-display {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.4rem;
+            text-align: center;
+            display: none;
+        }
+
+        .result-display.active {
+            display: block;
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+            animation: popIn 0.3s ease-out;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.85rem;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-blue);
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 40px;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <div>📍 Salt Lake City, Sector V, Kolkata, West Bengal</div>
+        <div>
+            <a href="#portal">Intranet Portal</a> | 
+            <a href="#contact">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header>
+        <div class="header-container">
+            <div class="brand-logo">
+                <div class="logo-placeholder">TMSL</div>
+                <div class="brand-text">
+                    <h1>Techno Main Salt Lake</h1>
+                    <p>Approved by AICTE & Affiliated to MAKAUT / WBSCT&VE&SD</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#academics">Academics</a></li>
+            <li><a href="#admissions">Admissions</a></li>
+            <li><a href="#departments">Departments</a></li>
+            <li><a href="#placements">Placements</a></li>
+            <li><a href="#downloads">Downloads</a></li>
+        </ul>
+    </nav>
+
+    <!-- News Ticker -->
+    <div class="ticker-wrap">
+        <div class="ticker-title">Latest Updates</div>
+        <div class="ticker-text">
+            📢 Semester Examination Results Published | 🎓 Ph.D. Registration Open for 2026 Academic Session | 💼 Campus Placement Drive Starts Next Week
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <!-- Main Body Area -->
+        <main>
+            <!-- Result Check Section -->
+            <section class="card" id="results">
+                <h2>Check Student Result</h2>
+                <div class="result-box">
+                    <label for="rollNumber">Enter 3-Digit Roll Number:</label>
+                    <input type="text" id="rollNumber" maxlength="3" placeholder="e.g. 101" autocomplete="off">
+                    <span class="error-message" id="errorMessage">Please enter a valid 3-digit roll number (e.g., 001 to 999).</span>
+                    <button id="submitBtn" onclick="checkResult()">OK</button>
+                </div>
+                <div id="resultOutput" class="result-display"></div>
+            </section>
+
+            <section class="card" id="home">
+                <h2>Welcome to Techno Main Salt Lake</h2>
+                <p>Techno Main Salt Lake (formerly Techno India Salt Lake) is a premier engineering and technical institution located in the IT hub of Sector V, Salt Lake, Kolkata. We are committed to fostering academic excellence, innovative research, and industry-ready skills for engineering and management aspirants.</p>
+            </section>
+
+            <section class="card" id="academics">
+                <h2>Academic Programs</h2>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li><strong>B.Tech:</strong> Computer Science, AI & ML, ECE, EE, IT, Civil, Mechanical</li>
+                    <li><strong>Polytechnic / Diploma Engineering</strong></li>
+                    <li><strong>Postgraduate & Professional:</strong> M.Tech, MBA, MCA</li>
+                </ul>
+            </section>
+        </main>
+
+        <!-- Sidebar Area -->
+        <aside>
+            <section class="card quick-links">
+                <h2>Quick Access</h2>
+                <ul>
+                    <li><a href="#results">📊 Check Semester Results</a></li>
+                    <li><a href="#admissions">📌 WBJEE Admission Guidelines</a></li>
+                    <li><a href="#notices">📄 Examination Circulars</a></li>
+                    <li><a href="#library">📚 Central Library Catalog</a></li>
+                    <li><a href="#placements">🏢 Training & Placement Cell</a></li>
+                    <li><a href="#downloads">📥 Application Forms & Downloads</a></li>
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Techno Main Salt Lake, Kolkata. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Audio & Result Script -->
+    <script>
+        // Web Audio API generator for the "FAHHHH" meme vocal sound
+        function playFahhhSound() {
+            try {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                const ctx = new AudioContext();
+
+                // Create noise buffer for vocal friction ("F" breath)
+                const bufferSize = ctx.sampleRate * 0.8;
+                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = Math.random() * 2 - 1;
+                }
+
+                const noise = ctx.createBufferSource();
+                noise.buffer = buffer;
+
+                // Vocal tract bandpass filter (formant)
+                const filter = ctx.createBiquadFilter();
+                filter.type = "bandpass";
+                filter.frequency.setValueAtTime(300, ctx.currentTime);
+                filter.frequency.exponentialRampToValueAtTime(1200, ctx.currentTime + 0.15);
+                filter.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.7);
+                filter.Q.value = 3.0;
+
+                // Main oscillator tone ("AHHH" pitch bend)
+                const osc = ctx.createOscillator();
+                osc.type = "sawtooth";
+                osc.frequency.setValueAtTime(320, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(140, ctx.currentTime + 0.6);
+
+                // Gain envelope
+                const gain = ctx.createGain();
+                gain.gain.setValueAtTime(0.01, ctx.currentTime);
+                gain.gain.linearRampToValueAtTime(0.7, ctx.currentTime + 0.08);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.75);
+
+                // Connect audio nodes
+                noise.connect(filter);
+                filter.connect(gain);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                // Start playback
+                noise.start(ctx.currentTime);
+                osc.start(ctx.currentTime);
+                noise.stop(ctx.currentTime + 0.75);
+                osc.stop(ctx.currentTime + 0.75);
+            } catch (e) {
+                console.log("Audio play error:", e);
+            }
+        }
+
+        function checkResult() {
+            const rollInput = document.getElementById('rollNumber').value.trim();
+            const resultOutput = document.getElementById('resultOutput');
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Validate if input is exactly 3 digits
+            const isThreeDigits = /^\d{3}$/.test(rollInput);
+
+            if (isThreeDigits) {
+                errorMessage.style.display = 'none';
+                resultOutput.innerText = "KYA HUA DAAR GYE NA 🤣";
+                resultOutput.classList.add('active');
+                
+                // Play the sound effect
+                playFahhhSound();
+            } else {
+                resultOutput.classList.remove('active');
+                resultOutput.innerText = "";
+                errorMessage.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
